@@ -4,14 +4,18 @@
 - docker
 - docker-compose
 
-## Installation
+## Installation (local)
 
 - create `.env` file using `.env.example` as template
 - build and run dockers using `docker-compose up`
 - run `npx prisma db push` to sync database changes
+- run `npm run db-seed` to fill database with tests data
+- run `npm run dev` to start dev server
 
 ## Usefull commands
 - `npx prisma db push` - sync Prisma schema with database
+- `npm run db-seed` - run fixtures (seed db with random data)
+- `npm run db-reset` - reset all data in database
 - `npm run dev` - starts dev environment locally
 - `docker-compose up` - builds and start containers (required for database in local use)
 
