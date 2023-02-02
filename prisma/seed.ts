@@ -45,12 +45,12 @@ async function notes(users: Array<User>, count: number = 15): Promise<Array<Note
     return new Promise((resolve, reject) => resolve(notes));
 }
 
-users().then(async (users: Array<User>) => {
-    await notes(users);
-}).then(async () => {
-    await prisma.$disconnect();
-}).catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-});
+users()
+    .then(notes)
+    .then(async () => {
+        await prisma.$disconnect();
+    }).catch(async (e) => {
+        console.error(e);
+        await prisma.$disconnect();
+        process.exit(1);
+    });
